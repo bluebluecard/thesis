@@ -25,30 +25,6 @@ def calculate_open_and_cap(plant_com):
         capacity += plant[i+1][0]*int(plant_com[i])
 
     return [open_cost,capacity]
-
-#def calculate_edge_cost(plant_com):
-
-#    cost = 0
-#    demand_sort = sorted(customer_demand,key = lambda x:x[1])
-#    plant_copy = copy.deepcopy(plant)
-#    for customer_i in demand_sort:
-#        pointer = 0
-#        customer = customer_i[:]
-#        cost_sorted = sorted(edge_cost[customer[0]],key = lambda x:x[1])
-#        while customer[1] > 0:
-#            plant_name = cost_sorted[pointer][0]
-#            if plant_copy[plant_name][0]*int(plant_com[plant_name - 1]) > 0:
-#                if customer[1] >= plant_copy[plant_name][0]:
-#                    allocate = plant_copy[plant_name][0]
-#                else:
-#                    allocate = customer[1]
-#                cost += allocate*cost_sorted[pointer][1]
-#                plant_copy[plant_name][0] -= allocate
-#                customer[1] -= allocate
-#            pointer += 1
-
-#    return cost
-
 def enumerate_allocate(demand,p_num):
 
     return filter(lambda x:sum(x) == demand,itertools.product(range(0,demand+1),repeat = p_num))
